@@ -39,3 +39,6 @@ print(hours*60+minutes)
 
 age = int(input("How old are you: \n"))
 print("Wow you are old that is", 5256*age, "minutes!")
+
+#Rounding numbers
+#round(num_to_be_rounded, #_of_decimals)
