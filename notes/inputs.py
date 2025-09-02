@@ -1,4 +1,4 @@
-# Blaine Buckler 1st Inputs and Outputs Notes
+# BB 1st Inputs and Outputs Notes
 
 #5 What is an input
 #A way for the code to get information

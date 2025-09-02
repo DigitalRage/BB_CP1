@@ -1,4 +1,4 @@
-# Blaine Buckler 1st Variables Notes
+# BB 1st Variables Notes
 even_number = 2
 grade = 99
 animal = "Panda"

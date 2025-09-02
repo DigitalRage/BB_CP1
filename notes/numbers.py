@@ -1,4 +1,4 @@
-# Blaine Buckler 1st Integers and Floats Notes
+# BB 1st Integers and Floats Notes
 
 
 #Intergers
