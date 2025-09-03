@@ -14,7 +14,7 @@
 
 
 #String Examples: 
-setence = "The quick brown fox jumps over the lazy job!"
+setence = "The quick brown fox jumps over the lazy dog!"
 first_name = "Tia"
 month = "September"
 book = "The Return of the King"
