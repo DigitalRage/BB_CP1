@@ -4,9 +4,10 @@ while True:
     cash = input("How much cash do you want the pirate crew to have in all? \n").strip()
     crew = input("How much people do you want in the crew? \n").strip()
 
-    if crew.isdigit and cash.replace(".","",1).isdigit() or cash.isdigit:
+    if  (cash.replace(".","",1).isdigit() or cash.isdigit) and crew.isdigit:
         cash = int(cash)
-        crew = int(crew+8)
+        crew = int(crew)
+        crew = crew+8
         cap = (cash/crew)*7
         f_mate = (cash/crew)*3
         crew_mem = (cash/crew-500)
