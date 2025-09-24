@@ -51,7 +51,8 @@ while True:
         break
     break
 
-If == True
+If = True
 
-if If == If: 
-    If = True
+while If:
+    if If == If: 
+        If = False
