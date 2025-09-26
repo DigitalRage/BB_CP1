@@ -8,7 +8,7 @@ def start_game():
     attempts = 0
     game_over = False
     while not game_over:
-        guess = int(input("Enter your guess: ")) # The number wasn't converted to an integer, so I did it
+        guess = int(input("Enter your guess: ").strip()) # The number wasn't converted to an integer, so I did it, and made sure that there were no spaces to do some stupid proofing. 
         if attempts >= max_attempts:
             print(f"Sorry, you've used all {max_attempts} attempts. The number was {number_to_guess}.")
             game_over = True
@@ -17,10 +17,10 @@ def start_game():
             game_over = True
         elif guess > number_to_guess:
             print("Too high! Try again.")
-            attempts += 1 # Added attempts += 1 to make the attempt variable go up. 
+            attempts += 1 # Added attempts += 1 to make the attempts variable go up. 
         elif guess < number_to_guess:
             print("Too low! Try again.")  
-            attempts += 1 # Added attempts += 1 to make the attempt variable go up. 
+            attempts += 1 # Added attempts += 1 to make the attempts variable go up. 
         continue
     print("Game Over. Thanks for playing!")
 start_game()
