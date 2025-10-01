@@ -21,7 +21,11 @@ while True:
         print("So long cruel world!")
         break
     elif action == "5": 
-        
+        item = input("What is the name of your item? \n").strip()
+        if item in list: 
+            list[item] += " done"
+        else: 
+            print("Try Again")
     elif action == "Cave Story": 
         print("YOO!")
     else: 
