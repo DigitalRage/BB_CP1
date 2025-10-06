@@ -38,4 +38,3 @@ while i <20:
         i += 10
 
 print("The loop ended")
-random.random.random.random.random.random.random.random.random.random.random.random.random.random
