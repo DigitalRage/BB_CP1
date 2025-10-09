@@ -1,5 +1,5 @@
 BB 1st Pseudocode Tic Tac Toe Project
-    imported randome module
+    imported random module
 
     player_input is input from #1-9
     while the input doesn't equal #1-9 try again
