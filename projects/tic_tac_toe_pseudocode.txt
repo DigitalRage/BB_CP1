@@ -25,10 +25,10 @@ BB 1st Pseudocode Tic Tac Toe Project
 
     display the board after computer and players turns
 
-    loop until all pieces on the board are filled or if 3 of the same character in a row
+    loop until all pieces on the board are filled or if 3 of the same character in a row column or diagonal
 
-    p_win_var will be used to see if player has the right win requirements
-    c_win_var will be used to see if computer has the right win requirements
+    p_win_var will be used to see if player has the right win requirements if 3 of the same character in a row column or diagonal
+    c_win_var will be used to see if computer has the right win requirements if 3 of the same character in a row column or diagonal
 
     open_slots will be a list of #1-9
     if they all turn into non-numbers end the game
