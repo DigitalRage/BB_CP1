@@ -1,3 +1,39 @@
-BB 1st Pseudocode Porject
+BB 1st Pseudocode Tic Tac Toe Project
+    imported randome module
 
-    player_input = player number input from 1-9
+    player_input is input from #1-9
+    while the input doesn't equal #1-9 try again
+    if successful convert player_input (which is a non-number at the moment) to a whole number
+
+    computer_input is using random.randint() to get a random number from 1-9
+
+    board will be 3*3 tile shaped, 1-3 for first row, 4-6 for second row, 7-9 for third row
+     1 | 2 | 3
+    -----------
+     4 | 5 | 6
+    -----------
+     7 | 8 | 9 
+
+    turn equals random.randint() (a random number) to import #0-1 randomly
+    if 0 is the end result then the player goes first, otherwise if the result is 1 then the computer goes first
+    after that it loops turn based
+    
+    numbers will be replaced be using .replace() (to replace content inside the text) on the inside of the board
+    if it is computers turn use X as their placemark on the board
+    if it is players turn use O as their placemark on the board
+    if the spot is already used, display "try again" and loop the segment
+
+    display the board after computer and players turns
+
+    loop until all pieces on the board are filled or if 3 of the same character in a row
+
+    p_win_var will be used to see if player has the right win requirements
+    c_win_var will be used to see if computer has the right win requirements
+
+    open_slots will be a list of #1-9
+    if they all turn into non-numbers end the game
+    if win requirements are fulfiled end the game
+
+    if all board places are filled diplay "tie game"
+    if the player won, display "the player won"
+    if the computer won, display "the computer won"
