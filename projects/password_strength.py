@@ -14,7 +14,7 @@ while True:
     else: 
         pwords.append(p_word)
 
-    #Holds the number for how string the password is
+    #Holds the number for how strong the password is
     strength = 5 
 
     #bool is used to return as true or false
