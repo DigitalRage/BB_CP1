@@ -7,7 +7,12 @@ pwords = []
 while True:
     #Variable is used to get the password and save it
     p_word = input("What is your password?\n").strip()
-    pwords.append(p_word)
+    #Checks if you already checked this password
+    if p_word in pwords: 
+        print("You have already entered your past password. ")
+        continue
+    else: 
+        pwords.append(p_word)
 
     #Holds the number for how string the password is
     strength = 5 
