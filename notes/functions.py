@@ -36,3 +36,6 @@ print(add("idiot","boy"))
 
 print(initials("Tia LaRose"))
 print(initials("Franco Barboza"))
+
+print(f"a = {ord("a")}")
+print(f"98 = {chr(98)}")
