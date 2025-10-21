@@ -1,7 +1,17 @@
 # BB 1st period Functions Notes
 #Set variables
-
+player_health = 100
+monster_health = 100
 #define functions
+def damage(amount, turn):
+    if turn == "player":  
+        return monster_health - amount, player_health
+    else: 
+        return monster_health, player_health - amount
+monster_health, player_health = damage(10, "player")
+print(monster_health)
+print(player_health)
+
 def add(x,y): 
     return x+y
 
@@ -23,3 +33,6 @@ while x < add(3,9):
 print("goose")
 add(3,9)
 print(add("idiot","boy"))
+
+print(initials("Tia LaRose"))
+print(initials("Franco Barboza"))
