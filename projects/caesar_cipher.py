@@ -1,39 +1,64 @@
-# BB 1st Caeser Cipher Project
-#Declares to user what project does
-print("This is a Caeser Ciper Encoder/Decoder. \nWhat do You want to do? ")
-#Loop for each decode/encode
-def encoder(encoded_message):
-    encoded_message = list(encode_message)
-    encoded_message = ord(encoded_message)
-    encoded_message = encoded_message += number
+# BB 1st Caesar Cipher Project
+# this shifts a single character and leaves non-letters alone
+def shift_char(character, shift):
+    #this is for shifting a lowecase letter
+    if 'a' <= character <= 'z':
+        base = ord('a')
+        return chr((ord(character) - base + shift) % 26 + base)
+    #this is for shifting an uppercase letter
+    if 'A' <= character <= 'Z':
+        base = ord('A')
+        return chr((ord(character) - base + shift) % 26 + base)
+    return character
 
-    return encoded_message
-#main loop
-while True:
-    #person number input for what they want to do
-    decision = input("1. Encode\n2. Decode\n3. Quit life\n") 
-    #checks if the decision is a digit
-    if decision.isdigit(): 
-        #makes the number a number if it is a number
-        decision = int(decision)
-    else: 
-        #loops back to start to try again
-        print("Try Again")
-        continue
-    #if you are encoding, encode the message
-    if decision == 1: 
-        #user encode message
-        encode_message = input("Type the message you want to encode: \n")
-        #what number they want to encode it to
-        number = input("What number do you want to encode to?\n")
-        #checks if the number is a number
-        if number.isdigit():
-            #makes the number a number it is a number
-            number = int(number)
+
+def encode(text, shift):
+    # encode text by shifting each letter forward by shift (shift may be negative)
+    result = ''
+    for character in text:
+        result += shift_char(character, shift)
+    return result
+
+
+def decode(text, shift):
+    # decode by shifting backwards
+    return encode(text, -shift)
+
+
+def prompt_int(prompt):
+    # simple prompt that allows negative integers
+    while True:
+        s = input(prompt)
+        try:
+            return int(s)
+        except ValueError:
+            print('Please enter a valid integer (e.g. 3 or -2).')
+
+
+def interactive():
+    print('This is a Caesar Cipher Encoder/Decoder.')
+    while True:
+        print('\n1) Encode')
+        print('2) Decode')
+        print('3) Quit')
+        choice = input('Choose 1/2/3: ').strip()
+
+        if choice == '1':
+            text = input('Type the message to encode:\n')
+            shift = prompt_int('Shift amount (integer):\n')
+            print('\nEncoded:')
+            print(encode(text, shift))
+        elif choice == '2':
+            text = input('Type the message to decode:\n')
+            shift = prompt_int('Shift amount used to encode (integer):\n')
+            print('\nDecoded:')
+            print(decode(text, shift))
+        elif choice == '3' or choice.lower() in ('q', 'quit'):
+            print('Goodbye!')
+            break
         else:
-            #makes you redo if it is false
-            print("Try Again")
-            continue
+            print('Invalid choice — please enter 1, 2, or 3.')
 
-        encoded_message = encoder
-    elif decision == 2: 
+
+if __name__ == '__main__':
+    interactive()
