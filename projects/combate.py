@@ -5,6 +5,8 @@ import random as R
 print("Welcome to training! First I need to know some things about you!")
 type = input("What class are you?\n1. Rogue\n2. Wizard\n3. Lizard\n!*&#$. Nerd\n")
 na = input("What is your useless name?")
+scenareo = R.randint(1,3)
+turn = R.randint(1,2)
 
 if type == 1: 
     health = 25
@@ -26,3 +28,50 @@ elif type == 3.14159:
     attack = 9999
     defence = 9999
     damage = 9999
+
+if scenareo == 1:
+    print("You are walking through a dark forest when suddenly a wild Chris Pratt appears!")
+    T.sleep(2)
+    print("Prepare for battle!")
+    T.sleep(1)
+    chris_pratt_health = 30
+    chris_pratt_attack = 10
+    chris_pratt_defence = 5
+    chris_pratt_damage = 8
+elif scenareo == 2:
+    print("You are in a dark dungeon when a wild Jack Black appears!")
+    T.sleep(2)
+    print("Prepare for battle!")
+    T.sleep(1)
+    jack_black_health = 35
+    jack_black_attack = 8
+    jack_black_defence = 10
+    jack_black_damage = 7
+elif scenareo == 3:
+    print("You ar walking in China Town and suddenly a wild Jackie Chan appears!")
+    T.sleep(2)
+    print("Prepare for battle!")
+    T.sleep(1)
+    jackie_chan_health = 28
+    jackie_chan_attack = 12
+    jackie_chan_defence = 8
+    jackie_chan_damage = 9
+else: 
+    print("Error: Invalid scenario.")
+    pass
+
+def player_turn(action):
+    health
+    attack
+    defence
+    damage
+    print("Your turn!")
+    action = input("What do you want to do?\n1. Attack\n2. Defend\n")
+    if action == 1:
+        print("You attack the enemy!")
+    elif action == 2:
+        print("You defend against the next attack!")
+        # Update player defence here
+    else:
+        print("Invalid action. You lose your turn.") 
+    return action
