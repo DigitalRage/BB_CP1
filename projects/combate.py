@@ -1,77 +1,120 @@
-# BB 1st Combate Project
 import time as T
 import random as R
 
+# Setup
 print("Welcome to training! First I need to know some things about you!")
-type = input("What class are you?\n1. Rogue\n2. Wizard\n3. Lizard\n!*&#$. Nerd\n")
-na = input("What is your useless name?")
-scenareo = R.randint(1,3)
-turn = R.randint(1,2)
+type = float(input("What class are you?\n1. Rogue\n2. Wizard\n3. Lizard\n!*&#$. Nerd\n"))
+name = input("What is your name?")
+scenario = R.randint(1, 3)
+turn = R.randint(1, 2)
 
-if type == 1: 
-    health = 25
-    attack = 15
-    defence = 15
-    damage = 5
-elif type == 2: 
-    health = 40
-    attack = 20
-    defense = 5
-    damage = 10
+# Player stats
+if type == 1:
+    player_health = 25
+    player_attack = 15
+    player_defense = 15
+    player_damage = 5
+elif type == 2:
+    player_health = 40
+    player_attack = 20
+    player_defense = 5
+    player_damage = 10
 elif type == 3:
-    health = 1
-    attack = 15
-    defence = 100
-    damage = 1
-elif type == 3.14159: 
-    health = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989380952572010654858632788659361533
-    attack = 9999
-    defence = 9999
-    damage = 9999
+    player_health = 1
+    player_attack = 15
+    player_defense = 100
+    player_damage = 1
+elif type == 3.14159:
+    player_health = 3.14
+    player_attack = 9999
+    player_defense = 9999
+    player_damage = 9999
+else:
+    player_health = 10
+    player_attack = 5
+    player_defense = 5
+    player_damage = 2
 
-if scenareo == 1:
+# Enemy stats
+if scenario == 1:
     print("You are walking through a dark forest when suddenly a wild Chris Pratt appears!")
     T.sleep(2)
     print("Prepare for battle!")
     T.sleep(1)
-    chris_pratt_health = 30
-    chris_pratt_attack = 10
-    chris_pratt_defence = 5
-    chris_pratt_damage = 8
-elif scenareo == 2:
+    enemy_health = 30
+    enemy_attack = 10
+    enemy_defense = 5
+    enemy_damage = 8
+elif scenario == 2:
     print("You are in a dark dungeon when a wild Jack Black appears!")
     T.sleep(2)
     print("Prepare for battle!")
     T.sleep(1)
-    jack_black_health = 35
-    jack_black_attack = 8
-    jack_black_defence = 10
-    jack_black_damage = 7
-elif scenareo == 3:
-    print("You ar walking in China Town and suddenly a wild Jackie Chan appears!")
+    enemy_health = 35
+    enemy_attack = 8
+    enemy_defense = 10
+    enemy_damage = 7
+elif scenario == 3:
+    print("You are walking in China Town and suddenly a wild Jackie Chan appears!")
     T.sleep(2)
     print("Prepare for battle!")
     T.sleep(1)
-    jackie_chan_health = 28
-    jackie_chan_attack = 12
-    jackie_chan_defence = 8
-    jackie_chan_damage = 9
-else: 
-    print("Error: Invalid scenario.")
-    pass
+    enemy_health = 28
+    enemy_attack = 12
+    enemy_defense = 8
+    enemy_damage = 9
+else:
+    enemy_health = 1
+    enemy_attack = 1
+    enemy_defense = 1
+    enemy_damage = 1
 
-def player_turn(action):
-    health
-    attack
-    defence
-    damage
+# Turn functions
+def player_turn():
     print("Your turn!")
-    action = input("What do you want to do?\n1. Attack\n2. Defend\n")
-    if action == 1:
-        print("You attack the enemy!")
-    elif action == 2:
-        print("You defend against the next attack!")
-        # Update player defence here
-    else:
-        print("Invalid action. You lose your turn.") 
+    action = input("Choose:\n1. Attack\n2. Defend\n3. Heal\n4. Flee\n")
     return action
+
+def enemy_turn():
+    return R.choice(["attack", "defend"])
+
+# Game loop
+while player_health > 0 and enemy_health > 0:
+    if turn == 1:
+        action = player_turn()
+        if action == "1":
+            dmg = max(player_damage - enemy_defense // 2, 1)
+            enemy_health -= dmg
+            print(f"You deal {dmg} damage! Enemy health is now {enemy_health}.")
+        elif action == "2":
+            player_defense += 5
+            print("You defend. Defense increased.")
+        elif action == "3":
+            player_health += 10
+            print(f"You heal. Health is now {player_health}.")
+        elif action == "4":
+            if R.random() < 0.5:
+                print("You fled successfully!")
+                break
+            else:
+                print("You failed to flee!")
+        else:
+            print("Invalid action.")
+        turn = 2
+    else:
+        print("Enemy's turn!")
+        action = enemy_turn()
+        if action == "attack":
+            dmg = max(enemy_damage - player_defense // 2, 1)
+            player_health -= dmg
+            print(f"Enemy deals {dmg} damage! Your health is now {player_health}.")
+        else:
+            enemy_defense += 5
+            print("Enemy defends. Defense increased.")
+        turn = 1
+
+# Outcome
+if player_health <= 0:
+    print("You were defeated.")
+elif enemy_health <= 0:
+    print(f"{name} wins!")
