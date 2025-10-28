@@ -43,7 +43,7 @@ t.end_fill()
 
 for i in range(1, 1000):
     t.forward(1+i)
-    t.right(120)
+    t.right(119)
     t.forward(20)
     t.color(random.choice(colors))
 
