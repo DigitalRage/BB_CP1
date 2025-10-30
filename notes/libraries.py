@@ -69,6 +69,6 @@ for i in range(1, 10000):
     t.forward(1+i)
     t.right(300)
     t.forward(20)
-    t.pencolor(((i * 1) % 255, (i*1000) % 255, (i * 1000) %255))
+    t.pencolor(((i * 1) % 255, (i*11) % 255, (i * 10) %255))
 screen.tracer(1)
 t.done()
