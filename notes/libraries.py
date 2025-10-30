@@ -2,7 +2,7 @@
 import turtle as t
 import random
 
-def draw_branch(branch_length):
+"""def draw_branch(branch_length):
     if branch_length > 5:
         t.forward(branch_length)
         t.right(20)
@@ -20,9 +20,9 @@ t.down()
 draw_branch(100)
 t.done()
 
-draw_branch(10)
+draw_branch(10)"""
 
-"""colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown"]
+colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown"]
 side = random.randint(10, 500)
 
 screen = t.Screen()
@@ -69,7 +69,6 @@ for i in range(1, 10000):
     t.forward(1+i)
     t.right(300)
     t.forward(20)
-    t.pencolor(((i * 1) % 255, (i*100) % 255, (i * 1000) %255))
+    t.pencolor(((i * 1) % 255, (i*1000) % 255, (i * 1000) %255))
 screen.tracer(1)
 t.done()
-"""
