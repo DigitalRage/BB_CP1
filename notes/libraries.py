@@ -1,6 +1,7 @@
 #BB 1st Libraries and built in functions
 import turtle as t
 import random
+import time
 
 """def draw_branch(branch_length):
     if branch_length > 5:
@@ -22,60 +23,63 @@ t.done()
 
 draw_branch(10)"""
 
-colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown"]
-side = random.randint(10, 500)
-
+#colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown"]
+#side = random.randint(10, 500)
+#
 screen = t.Screen()
-t.speed(0)
+while True:
+    time.sleep(0.1)
+#t.speed(0)
+#
+#
+#t.color(random.choice(colors))
+#t.shape("turtle")
+#
+#t.width(50)
+#t.fillcolor(random.choice(colors))
+#t.begin_fill()
+#t.forward(250)
+#t.right(90)
+#t.forward(250)
+#t.right(90)
+#t.forward(250)
+#t.right(90)
+#t.forward(250)
+#t.right(90)
+#t.end_fill()
+#
+#t.penup()
+#t.goto(50, 50)
+#
+#t.pendown()
+#t.fillcolor(random.choice(colors))
+#t.begin_fill()
+#t.forward(250)
+#t.right(90)
+#t.forward(250)
+#t.right(90)
+#t.forward(250)
+#t.right(90)
+#t.forward(250)
+#t.right(90)
+#t.end_fill()
 
-
-t.color(random.choice(colors))
-t.shape("turtle")
-
-t.width(50)
-t.fillcolor(random.choice(colors))
-t.begin_fill()
-t.forward(250)
-t.right(90)
-t.forward(250)
-t.right(90)
-t.forward(250)
-t.right(90)
-t.forward(250)
-t.right(90)
-t.end_fill()
-
-t.penup()
-t.goto(50, 50)
-
-t.pendown()
-t.fillcolor(random.choice(colors))
-t.begin_fill()
-t.forward(250)
-t.right(90)
-t.forward(250)
-t.right(90)
-t.forward(250)
-t.right(90)
-t.forward(250)
-t.right(90)
-t.end_fill()
-
-t2 = t.Turtle()
-t.colormode(255)
-t.pencolor((0, 0, 0))
-t2.pencolor((0, 0, 0))
-t.width(500)
-t2.width(500)
-screen.tracer(0)
-for i in range(1, 10000):
-    t.forward(1+i)
-    t2.forward(1+i)
-    t.right(120)
-    t2.left(120)
-    t.forward(20)
-    t2.forward(20)
-    t.pencolor(((i * 1) % 255, (i*11) % 255, (i * 10) %255))
-    t2.pencolor(((i * 10) % 255, (i*1) % 255, (i * 11) %255))
-screen.tracer(1)
-t.done()
+    t2 = t.Turtle()
+    t.colormode(255)
+    t.pencolor((0, 0, 0))
+    t2.pencolor((0, 0, 0))
+    t.width(500)
+    t2.width(500)
+    screen.tracer(0)
+    for i in range(1, 7000):
+        t.forward(1+i)
+        t2.forward(1+i)
+        t.right(125)
+        t2.left(240)
+        t.forward(10)
+        t2.forward(10)
+        t.pencolor(((i * 1) % 255, (i*1) % 255, (i * 10) %255))
+        t2.pencolor(((i * 10) % 255, (i*1) % 255, (i * 1) %255))
+    screen.tracer(1)
+    t.done()
+    
