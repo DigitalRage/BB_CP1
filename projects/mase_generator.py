@@ -1,30 +1,50 @@
 # add libraries
 import turtle as t
 import random as r
+
 #size of line
+s = 50
+#sets up screen module
 screen = t.Screen()
-canvas = screen.getcanvas()
+#list of all made lines
+spaces = [[-500,500,][]]
+#lifts pen
+t.penup()
+t.goto(-500, 500)
+t.pendown()
+t.right(90)
+t.forward(500)
+t.left(90)
+t.forward(450)
+t.penup()
+t.forward(50)
+t.pendown()
+t.left(90)
+t.forward(500)
+t.left(90)
+t.forward(450)
+t.pendown()
+
+x = r.randint(1,10)
+y= r.randint(1,10)
 
 
-    # Example: Check for items overlapping the turtle's current position
-    turtle_x, turtle_y = some_turtle.pos()
-    # Adjust for tkinter's inverted y-coordinate
-    overlapping_items = canvas.find_overlapping(turtle_x, -turtle_y, turtle_x, -turtle_y)
+r.randint(1,10)
+rotation = r.randint(1,4)
+if rotation == 1: 
+    x2 = x
+    y2 = y - 1
+elif rotation == 2: 
+    x2 = x
+    y2 = y
+elif rotation == 3: 
+    x2 = x
+    y2 = y + 1
+elif rotation == 4: 
+    x2 = x
+    y2 = y
 
-    if overlapping_items:
-        first_overlapping_item_id = overlapping_items[0]
-        color = canvas.itemcget(first_overlapping_item_id, "fill")
-        # Now you can check if 'color' matches your target color
-        if color == "red":
-            print("Turtle is touching red!")
-
-    # Example: Check if turtle is within a red square at (100, 100) with side 50
-    if 100 <= some_turtle.xcor() <= 150 and 100 <= some_turtle.ycor() <= 150:
-        print("Turtle is in the red square!")
-
-
-
-
-size = r.randint(1,5)
-
-x = r.randint()
+#x cordinate
+#y cordanite
+spaces.append([x,y,x2,y2])
+t.done()
