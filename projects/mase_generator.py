@@ -6,9 +6,11 @@ import random as r
 s = 50
 #sets up screen module
 screen = t.Screen()
+screen.tracer(0)
 #list of all made lines
-spaces = [[-500,-500,500,0], [-500,0,0,0], [0,0,0,450], [0,-450,450,450]]
+cords = [[-500,-500,500,0,90], [-500,0,0,0,360], [0,0,0,450,270], [0,-450,450,450,180]]
 #lifts pen
+t.speed(0)
 t.penup()
 t.goto(-500, 500)
 t.pendown()
@@ -24,14 +26,16 @@ t.forward(500)
 t.left(90)
 t.forward(450)
 t.pendown()
+t.right(180)
 
 for i in range(1,5000):
     
-    x = r.randint(1,10)
-    y= r.randint(1,10)
+    x = r.randint(1,9)
+    y = r.randint(1,9)
 
     #checks what angle the line is, so that it can go that way
     rotation = r.randint(1,4)
+    angle = rotation * 90
     if rotation == 1: 
         x2 = x
         y2 = y - 1
@@ -45,29 +49,33 @@ for i in range(1,5000):
         x2 = x + 1
         y2 = y
     #Finds the cordinates in the x and y values
-    def cordinate_finder(var): 
+    def cord(var): 
         var = var * 50
         return var
 
-    angle = rotation * 90
 
-    x = cordinate_finder(x)
-    x2 = cordinate_finder(x2)
-    y = cordinate_finder(y)
-    y2 = cordinate_finder(y2)
+    x = cord(x)-500
+    x2 = cord(x2)-500
+    y = cord(y)
+    y2 = cord(y2)
 
     #x cordinate
-    #y cordanite
-    spaces.append([x,x2,y,y2])
+    #y cordinite
+    cords.append([x,x2,y,y2,angle])
 
-    
-for list in spaces: 
-    x = list[1]
-    x2 = list[2]
-    y = list[3]
-    y2 = list[4]
-    t.goto(x,y)
-    t.pendown()
-    t.goto(x2,y2)
+#pulls angle & cordnate
+for list in cords: 
+    x = list[0]
+    x2 = list[1]
+    y = list[2]
+    y2 = list[3]
+    angle = list[4]
     t.penup()
+    t.goto(x,y)
+    t.right(angle)
+    t.pendown()
+    t.forward(50)
+    t.left(angle)
+screen.tracer(1)
+
 t.done()
