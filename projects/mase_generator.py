@@ -69,17 +69,16 @@ def filtered_cords(data):
 
     for item in data: 
         x1, x2, y1, y2, *rest = item
+        point1 = (x1, y1)
+        point2 = (x2, y2)
 
-        point1 = (x1,y1)
-        point2 = (x2,y2)
-
-
-    if point1 not in seen_points or point2 not in seen_points: 
-        filtered_list.append(item)
-        seen_points.add(point1)
-        seen_points.add(point2)
+        if point1 not in seen_points or point2 not in seen_points: 
+            filtered_list.append(item)
+            seen_points.add(point1)
+            seen_points.add(point2)
 
     return filtered_list
+
 
 coords = filtered_cords(cords)
 
