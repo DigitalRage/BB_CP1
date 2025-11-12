@@ -1,7 +1,7 @@
 # BB 1st period, Dictionaries Notes! 
 avatar = {
     "earth": {
-        "Toph"; "Sounds like Tough and thats what I am (not)"
+        "Toph": "Sounds like Tough and thats what I am (not)"
     }, 
     "water": {
         "Katara": "It game me so much HOPE!", 
