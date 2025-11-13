@@ -1,35 +1,32 @@
 # BB 1st Order Up! Project
-meinFuud = {
-    "meel": {
-        "Booger":{
-            "HoomBooger": 10.00, 
-            "ChezBooger": 10.00, 
-            "BagMocWooper": 10.00, 
-            "Dabble Dabble Chris Pratt Style": 10.00
-        }, 
-
+mainFood = {
+    "Burger":{
+        "HoomBurger": 10.00, 
+        "CheeseBurger": 10.00, 
+        "BigMacWhoper": 10.00, 
+        "Double Double Chris Pratt Style": 10.00
     }, 
-    "Mooc aund Chez": {
-        "Tai-Knees Moc aund Chez": 10.00, 
-        "Moxeekhan Moc aund Chez": 10.00, 
-        "Ahmareokhan Moc aund Chez": 1000.00
+    "Mac and Cheese": {
+        "Chinese Mac and Cheese": 10.00, 
+        "Mexican Mac and Cheese": 10.00, 
+        "American Mac and Cheese": 1000.00
     }, 
-    "Tahkoos": {
-        "Sau-pht Tahkoos": 0.01, 
-        "Stwheat Tahkoos": 10.00, 
-        "Delt Tahkoos": 1000.00
+    "Tacos": {
+        "Soft Tacos": 0.01, 
+        "Street Tacos": 10.00, 
+        "Delt Tacos": 1000.00
     }
 }
-dwink =  {
-    "MalkShacks": {
-        "Cacklat MalkShack": 10.00, 
-        "Vannallah MalkShack": 10.00, 
-        "StwallBeary Malkshack": 10.00, 
-        "The Mystery Malkshack": 1000.00
+drink =  {
+    "Milkshakes": {
+        "Chocolate Milkshake": 10.00, 
+        "Vanilla Milkshake": 10.00, 
+        "StrwBerry Milkshake": 10.00, 
+        "The Mystery Milkshack": 1000.00
     },
     "Watter": {
-        "Top-Watter": 100.00, 
-        "Fwesh Watter": 1000.00
+        "Tap-Water": 100.00, 
+        "Fresh Water": 1000.00
     }, 
     "Geuse": {
         "Aypell Geuse": 10.00, 
@@ -37,14 +34,29 @@ dwink =  {
         "BeetleGeuse": 100000.00
     }
 }
-sydes = {
-    "Mooshed Potahtoes": 10.00, 
-    "1000ulb Fri": 0.01, 
-    "Sahlood": 1000000.00, 
-    "Bweed": 10.00, 
-    "Uniahn Wings": 10.00
+sides = {
+    "Mashed Potatoes": 10.00, 
+    "1000lb Fry": 0.01, 
+    "Salid": 1000000.00, 
+    "Bread": 10.00, 
+    "Onion Rings": 10.00
 }
-for key in meinFuud.keys(): 
-    print(f"{key}, {meinFuud[key]}")
-for key in sydes.keys(): 
-    print(f"{key}, {sydes[key]}")
+
+print(f"\nMain Course")
+
+for outsideKey, stuff in mainFood.items(): 
+    print(f"\n{outsideKey}\n")
+    for insideKey, insideValue in stuff.items(): 
+        print(f"{insideKey}::::::::::{insideValue}")
+
+print(f"\nDrinks")
+
+for outsideKey, stuff in drink.items(): 
+    print(f"\n{outsideKey}\n")
+    for insideKey, insideValue in stuff.items(): 
+        print(f"{insideKey}::::::::::{insideValue}")
+
+print(f"\nSides\n(Get at least 2 or die)")
+
+for key in sides.keys(): 
+    print(f"{key}::::::::::{sides[key]}")
