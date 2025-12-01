@@ -46,30 +46,28 @@ while True:
     elif command == "track":
         print("Track mode: press = for next, - for previous, Backspace to exit")
         while True:
-            if keyboard.is_pressed("="):
-                if current_track:
-                    idx = track_names.index(current_track)
-                    new_idx = (idx + 1) % len(track_names)
-                    play_track(track_names[new_idx])
-                else:
-                    play_track(track_names[0])
-                # debounce: wait a tiny moment so one press = one action
-                while keyboard.is_pressed("="):
-                    pass  
-                
-            elif keyboard.is_pressed("-"):
-                if current_track:
-                    idx = track_names.index(current_track)
-                    new_idx = (idx - 1) % len(track_names)
-                    play_track(track_names[new_idx])
-                else:
-                    play_track(track_names[0])
-                while keyboard.is_pressed("-"):
-                    pass  
-                
-            elif keyboard.is_pressed("backspace"):
-                print("Exiting track mode.")
-                break
+            # suppress=True prevents keys from being echoed into the console
+            event = keyboard.read_event(suppress=True)
+            if event.event_type == keyboard.KEY_DOWN:
+                if event.name == "=":
+                    if current_track:
+                        idx = track_names.index(current_track)
+                        new_idx = (idx + 1) % len(track_names)
+                        play_track(track_names[new_idx])
+                    else:
+                        play_track(track_names[0])
+
+                elif event.name == "-":
+                    if current_track:
+                        idx = track_names.index(current_track)
+                        new_idx = (idx - 1) % len(track_names)
+                        play_track(track_names[new_idx])
+                    else:
+                        play_track(track_names[0])
+
+                elif event.name == "backspace":
+                    print("Exiting track mode.")
+                    break
 
     elif command == "end":
         winsound.PlaySound(None, winsound.SND_PURGE)
