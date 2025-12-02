@@ -1,6 +1,6 @@
 import os
 import winsound
-import keyboard
+import msvcrt   # replaced keyboard with msvcrt
 
 # Build absolute paths to all files
 this_dir = os.path.dirname(os.path.abspath(__file__))
@@ -46,10 +46,16 @@ while True:
     elif command == "track":
         print("Track mode: press = for next, - for previous, Backspace to exit")
         while True:
-            # suppress=True prevents keys from being echoed into the console
-            event = keyboard.read_event(suppress=True)
-            if event.event_type == keyboard.KEY_DOWN:
-                if event.name == "=":
+            if msvcrt.kbhit():  # check if a key was pressed
+                key = msvcrt.getch()
+
+                # decode to string if possible
+                try:
+                    char = key.decode('utf-8')
+                except UnicodeDecodeError:
+                    char = ''
+
+                if char == '=':
                     if current_track:
                         idx = track_names.index(current_track)
                         new_idx = (idx + 1) % len(track_names)
@@ -57,7 +63,7 @@ while True:
                     else:
                         play_track(track_names[0])
 
-                elif event.name == "-":
+                elif char == '-':
                     if current_track:
                         idx = track_names.index(current_track)
                         new_idx = (idx - 1) % len(track_names)
@@ -65,7 +71,7 @@ while True:
                     else:
                         play_track(track_names[0])
 
-                elif event.name == "backspace":
+                elif key == b'\x08':  # Backspace key
                     print("Exiting track mode.")
                     break
 
